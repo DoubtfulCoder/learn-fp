@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* text-overflow: ; */
+    word-wrap: break-word;
+}
+
+/* Navigation menus */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #001580;
+    margin-bottom: 50px;
+}
+.site-title {
+    /* cursor: pointer; */
+    color: white;
+    font-family: "Montserrat", sans-serif;
+}
+
+.top-nav {
+    list-style: none;
+    display: flex;
+}
+.top-nav li {
+    padding: 0px 20px;
+}
+
+.nav-link-text, .loginSignUp a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    color: #feffff;
+    text-decoration: none;
+
+    transition: color 0.3s ease 0s;
+}
+.nav-link-text:hover {
+    color: #0088a9;
+}
+
+
+.loginSignUp a {
+    margin: 5px;
+    padding: 9px 25px;
+    /* background-color: rgba(0, 136, 169, 1); */
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: opacity 0.3s ease 0s;
+}
+
+.loginSignUp a:hover {
+    opacity: 75%;
+}
+
+.login-button {
+    /* background-color: white; */
+}
+
+.sign-up-button {
+    background-color: rgb(143, 144, 229);
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #0088a9;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.bottom-nav {
+    display: flex;
+    /* flex-direction: column; */
+    flex-direction: row;
+}
+
+.bottom-nav li {
+    list-style: none;
+    padding: 2px;
+    margin: 20px;
+}

@@ -3,12 +3,21 @@ module.exports = {
     title: `LearnFP`,
     siteUrl: `https://www.yourdomain.tld`
   },
-  plugins: ["gatsby-plugin-mdx", {
-    resolve: 'gatsby-source-filesystem',
-    options: {
-      "name": "pages",
-      "path": "./src/pages/"
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'tutorials',
+        path: `${__dirname}/language-tuts`,
+      },
     },
-    __key: "pages"
-  }]
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: `content`,
+        path: `${__dirname}/content`,
+      },
+    },
+    "gatsby-plugin-mdx",
+  ]
 };

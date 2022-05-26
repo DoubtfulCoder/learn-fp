@@ -5,37 +5,41 @@ import {
     loginSignUp, loginButton, signUpButton,
     bottomNav, 
 } from './layout.module.css'
-import 'bootstrap/dist/css/bootstrap.css';
 
 function Layout({ pageTitle, children }) {
-    console.log(children)
     return (
         <div>
             <title>{pageTitle}</title>
-            <header className="p-3 bg-dark text-white">
-                <div className="container">
-                <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <Link to="/" className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    
-                    </Link>
-
-                    <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li><Link to="/" className="nav-link px-2 text-secondary">Home</Link></li>
-                        <li><Link to="/courses" className="nav-link px-2 text-white">Courses</Link></li>
-                        <li><Link to="/blog" className="nav-link px-2 text-white">Blog</Link></li>
-                        <li><Link to="#" className="nav-link px-2 text-white">FAQs</Link></li>
-                        <li><Link to="#" className="nav-link px-2 text-white">About</Link></li>
+            <header>
+                <h1 className={siteTitle}>{pageTitle}</h1>
+                {/* Top navigation */}
+                <nav>
+                    <ul className={topNav}>
+                        <li className={navLink}>
+                            <Link to="/" className={navLinkText}>
+                                Home
+                            </Link>
+                        </li>
+                        <li className={navLink}>
+                            <Link to="/courses" className={navLinkText}>
+                                Courses
+                            </Link>
+                        </li>
+                        <li className={navLink}>
+                            <Link to="/blog" className={navLinkText}>
+                                Blog
+                            </Link>
+                        </li>
                     </ul>
-
-                    <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                        <input type="search" className="form-control form-control-dark text-white bg-dark" placeholder="Search..." aria-label="Search" />
-                    </form>
-
-                    <div className="text-end">
-                        <button type="button" className="btn btn-outline-light me-2">Login</button>
-                        <button type="button" className="btn btn-warning">Sign-up</button>
-                    </div>
-                </div>
+                </nav>
+                {/* Login and sign up */}
+                <div className={loginSignUp}>
+                    <Link to='/login' className={loginButton}>
+                        Login
+                    </Link>
+                    <Link to='/sign-up' className={signUpButton}>
+                        Sign up
+                    </Link>
                 </div>
             </header>
 

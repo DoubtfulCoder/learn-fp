@@ -1,6 +1,20 @@
 import * as React from 'react'
 import { doc, onSnapshot } from "firebase/firestore";
 import { db } from '../Firebase.js'
+import Dropdown from 'react-bootstrap/Dropdown'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { 
+    faBrain, faArrowRightFromBracket, faCheck, faCirclePlay
+} from '@fortawesome/free-solid-svg-icons'
+
+const possibleStatuses = ["Not Started", "Working", "Skipped", "Complete"]
+const icons = [
+    <FontAwesomeIcon icon={faCirclePlay} style={{color: "blue"}}/>, 
+    <FontAwesomeIcon icon={faBrain} style={{color: "orange"}}/>, 
+    <FontAwesomeIcon icon={faArrowRightFromBracket} style={{color: "purple"}}/>,
+    <FontAwesomeIcon icon={faCheck} style={{color: "green"}}/>
+]
+
 // function Resource({ source, name, link, notes="", keyVal }) {
 //     const td_classes = "p-2 bg-light border"
 //     return (
@@ -22,11 +36,19 @@ import { db } from '../Firebase.js'
 // }
 
 class Resource extends React.Component {
-    constructor({ source, name, link, notes="", keyVal }) {
-        super({ source, name, link, notes, keyVal })
+    // constructor({ source, name, link, notes="", keyVal }) {
+    //     super({ source, name, link, notes, keyVal })
+
+    //     this.state = {
+    //         status: "Not Started"
+    //     }
+    // }
+
+    constructor({ props }) {
+        super(props)
 
         this.state = {
-            status: "incomplete"
+            status: "Not Started"
         }
     }
 
@@ -55,19 +77,42 @@ class Resource extends React.Component {
 
     render() {
         const td_classes = "p-2 bg-light border"
+
         return (
             <tr key={this.keyVal}>
-                <td className={td_classes}>
-                    {this.state.status}
+                <td className={td_classes} style={{width: "20%"}}>
+                    <Dropdown>
+                            <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                {this.state.status + " "}
+                                {React.cloneElement(
+                                    icons[possibleStatuses.indexOf(this.state.status)], 
+                                    { style: {color: "white"} })}
+                            </Dropdown.Toggle>
+            
+                            <Dropdown.Menu>
+                                {
+                                    possibleStatuses.map((possibleStat, i) => (
+                                        <Dropdown.Item>
+                                            {possibleStat + " "}
+                                            {icons[i]}
+                                        </Dropdown.Item>
+                                    ))
+                                }
+                                {/* <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item> */}
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    {/* {this.state.status} */}
                 </td>
-                <td key="source" className={td_classes}>
-                    {this.source}
+                <td key="source" className={td_classes} style={{width: "15%"}}>
+                    {this.props.source}
                 </td>
-                <td key="name" className={td_classes}>
-                    <a href={this.link} target="_blank">{this.name}</a>
+                <td key="name" className={td_classes} style={{width: "30%"}}>
+                    <a href={this.props.link} target="_blank">{this.props.name}</a>
                 </td>
-                <td key="notes" className={td_classes}>
-                    {this.notes}
+                <td key="notes" className={td_classes} style={{width: "35%"}}>
+                    {this.props.notes}
                 </td>
             </tr>
         )

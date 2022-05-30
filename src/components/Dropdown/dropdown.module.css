@@ -1,0 +1,21 @@
+.dropdown-menu {
+    width: 150px;
+    height: 200px;
+    display: none;
+    float: right;
+    border: 3px solid #000000;
+}
+
+.dropdown-menu:focus {
+    display: block;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    padding: 10px;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: #000000;
+}

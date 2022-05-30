@@ -29,7 +29,6 @@ function CoursesPage({ data }) {
 }
 
 export const query = graphql`
-
     query {
         allMdx(filter: {fileAbsolutePath: {regex: "/language-tuts/"}}) {
             nodes {

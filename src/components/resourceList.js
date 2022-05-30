@@ -1,6 +1,6 @@
 import * as React from 'react'
-import 'bootstrap/dist/css/bootstrap.css';
 import { getStatus } from '../Firebase.js'
+import Table from 'react-bootstrap/Table'
 
 function ResourceList({ children, title }) {
     const th_classes = "p-2 bg-light border"
@@ -17,15 +17,15 @@ function ResourceList({ children, title }) {
     children.forEach(child => {
         getStatus("haskell", "basics", "yo").then((result) => {
             statuses.push(result)
-            console.log(statuses)
+            console.log("statuses", statuses)
         })
     });
 
     // console.log(statuses)
     
     return (
-        <div>
-            <table>
+        <div>            
+            <Table responsive="md" borderless style={{maxWidth: "65%"}}>
                 <thead>
                     <tr>
                         <th className={th_classes}>Status</th>
@@ -44,7 +44,7 @@ function ResourceList({ children, title }) {
                     ))}
                     {/* {children} */}
                 </tbody>
-            </table>
+            </Table>
             <br />
         </div>
     )

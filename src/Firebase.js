@@ -2,14 +2,17 @@
 import { initializeApp } from "firebase/app";
 import { 
     getAuth, GoogleAuthProvider, signInWithPopup,
-    getAdditionalUserInfo
+    getAdditionalUserInfo, signOut
 } from 'firebase/auth'
 import {
     getFirestore, collection, getDocs,
     addDoc, deleteDoc, doc, updateDoc, 
     getDoc, onSnapshot,
     query, where, 
+    setDoc, 
 } from 'firebase/firestore'
+import * as React from 'react'
+import { navigate } from "@reach/router"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -39,6 +42,7 @@ export const signInWithGoogle = () => {
             const name = result.user.displayName;
             const email = result.user.email;
             const profilePic = result.user.photoURL;
+            const userId = result.user.uid;
 
             localStorage.setItem("name", name);
             localStorage.setItem("email", email);
@@ -51,15 +55,55 @@ export const signInWithGoogle = () => {
 
             // Add document for new user
             if (isNew) {
-                addDoc(colRef, {
-                    userName: name
+                // addDoc(colRef, {
+                //     userName: name
+                // })
+                // colRef.doc(userId).set({
+                //     name: "Los Angeles",
+                //     state: "CA",
+                //     country: "USA"
+                // })
+
+                let docRef = doc(db, 'users', userId)
+                setDoc(docRef, {
+                    name: "Los Angeles",
+                    state: "CA",
+                    country: "USA"
                 })
             }
+
+            // Store uid in cookies
+            document.cookie = `uid=${userId}; expires=Mon, 31 Dec 2040 12:00:00 UTC`
+            
+            // window.location.reload();
+            // Redirect to dashboard
+            // React.useEffect(() => {
+            //     navigate('/courses');
+            // }, []);
+            window.location.replace("/courses")
+            // result.user.getIdToken().then(idToken => {
+            //     console.log("token ID", idToken)
+            //     // const csrfToken = getCookie('csrfToken')
+            //     // return postIdTokenToSessionLogin('/sessionLogin', idToken, csrfToken)
+            // })
+
+            // console.log("result", result)
         })
         .catch((err) => {
             console.log(err)
         });
 };
+
+export function signOutAcc() { 
+    signOut(auth).then(() => {
+        console.log('Signed Out');
+        // delete uid
+        document.cookie = `uid=delete; expires=Thu, 01 Jan 1970 00:00:00 UTC`
+        window.location.reload();
+    }, function(error) {
+        console.error('Sign Out Error', error);
+    });
+}
 
 // export function checkStatus(category, subcategory) {
 //     // get document

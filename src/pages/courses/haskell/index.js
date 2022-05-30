@@ -30,7 +30,9 @@ function Haskell({ data }) {
 
 export const query = graphql`
   query {
-    allMdx(filter: {fileAbsolutePath: {regex: "/content/haskell/"}}) {
+    allMdx(
+      filter: {fileAbsolutePath: {regex: "/content/haskell/"}}
+    ) {
       nodes {
         frontmatter {
           title

@@ -4,6 +4,8 @@ module.exports = {
     siteUrl: `https://www.yourdomain.tld`
   },
   plugins: [
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -17,6 +19,18 @@ module.exports = {
         name: `content`,
         path: `${__dirname}/content`,
       },
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `gatsby-starter-default`,
+        short_name: `starter`,
+        start_url: `/`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `public/static/favicon.svg`, // This path is relative to the root of the site.
+      }
     },
     "gatsby-plugin-mdx",
   ]

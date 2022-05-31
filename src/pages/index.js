@@ -91,7 +91,7 @@ export default IndexPage
  *  }
  * }
  * 
- * Home pages for each course
+ * Home pages for each course x
  * 
  * Exercises
  * Quizzes

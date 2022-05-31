@@ -5,12 +5,37 @@ import { Link, graphql } from 'gatsby'
 import Accordion from 'react-bootstrap/Accordion'
 // import Sidebar from '../Sidebar/Sidebar.js'
 
-function CourseTemplate({ data, title }) {  
+// const fs = require('fs')
+
+// const loopFiles = async (dir) => {
+//     try {
+//       const files = await fs.promises.readdir(dir);
+  
+//       for (const file of files) {
+//         const p = path.join(moveFrom, file);
+//         const stat = await fs.promises.stat(p);
+  
+//         if (stat.isFile()) {
+//           console.log("'%s'  file.", fromPath);
+//         } else if (stat.isDirectory()) {
+//           console.log("'%s' directory.", fromPath);
+//         }
+//       }
+//     } catch (e) {
+//       console.error(e);
+//     }
+  
+//   }
+
+function CourseTemplate({ data, pageContext }) {  
+    const { language } = pageContext
+    
     // No data yet for course
     if (data.allMdx.nodes.length === 0) {
         return (
             <Layout>
-                <h1>Coming soon!</h1>
+                <h1>{language}</h1>
+                <h2>Coming soon!</h2>
                 <p>Check out other courses: </p>
                 <Link to="/courses">Courses home</Link>
             </Layout>
@@ -37,6 +62,7 @@ function CourseTemplate({ data, title }) {
 
     return (
         <Layout>
+            <h1>{language}</h1>
             <Accordion 
                 defaultActiveKey={Array(modules.length).fill(0).map((x,i) => i.toString())} 
                 alwaysOpen

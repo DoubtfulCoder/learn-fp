@@ -1,7 +1,22 @@
 import * as React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/layout.js'
-import CourseTemplate from '../../components/CourseTemplate/CourseTemplate.js'
+import { Card, Row, Col } from 'react-bootstrap'
+import './courses.css'
+
+const languages = [
+    "Haskell", "Racket", "Standard ML", "Javascript",
+    "F#", "OCaml"
+]
+
+const descriptions = [
+    "Learn the language of the lazy",
+    "Learn the modern lisp",
+    "Learn the king of the ML languages",
+    "Learn the functional wonders of the language of the web",
+    "Learn the functional language of practical applications",
+    "Learn the ML language for industry",
+]
 
 function CoursesPage({ data }) {
     return (
@@ -30,7 +45,56 @@ function CoursesPage({ data }) {
         // </div>    
         <Layout>
             <h1>Courses</h1>
-            
+
+            {/* <Row xs={1} md={2} className="g-4">
+                {Array.from({ length: 8 }).map((_, idx) => (
+                    <Col>
+                        <Card bg="info" border="primary">
+                            <Card.Img 
+                                variant="top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Haskell-Logo.svg/1024px-Haskell-Logo.svg.png?20190213014332" 
+                                className="p-3"/>
+                            <Card.Body>
+                                <Card.Title>Card title</Card.Title>
+                                <h1>Courses</h1>
+                                <Card.Text>
+                                    This is a longer card with supporting text below as a natural
+                                    lead-in to additional content. This content is a little bit longer.
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                ))}
+            </Row> */}
+            <Row xs={1} md={2} className="g-4">
+                {languages.map((language, i) => (
+                    <Col>
+                        <Link 
+                            to={`/courses/${
+                                language.replace(' ', '-').replace('#', '-sharp').toLowerCase()
+                            }`}
+                            className="text-decoration-none"
+                        >
+                            <Card bg="info" border="primary" className="cardLink">
+                                {/* <Card.Img 
+                                    variant="top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Haskell-Logo.svg/1024px-Haskell-Logo.svg.png?20190213014332" 
+                                    className="p-3"/> */}
+                                <Card.Body className="d-flex flex-row">
+                                    <Card.Img 
+                                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Haskell-Logo.svg/1024px-Haskell-Logo.svg.png?20190213014332" 
+                                        className="p-3 w-25"/>
+                                    <div>
+                                        <br />
+                                        <Card.Title>{language}</Card.Title>
+                                        <Card.Text>
+                                            {descriptions[i]}
+                                        </Card.Text>
+                                    </div>
+                                </Card.Body>
+                            </Card>
+                        </Link>
+                    </Col>
+                ))}
+            </Row>
         </Layout>
     )
 }

@@ -13,7 +13,7 @@ function trimTutName(str) {
 function IndexPage({ data }) { 
   return (
     <Layout pageTitle={'Learn Functional Programming'}>
-      <div class="container my-5">
+      <div class="container mt-1 mb-5">
         <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
           <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
             <h1 class="display-4 fw-bold lh-1">Border hero with cropped image and shadows</h1>
@@ -82,10 +82,6 @@ export default IndexPage
  * Hero images
  * 
  * Mark as complete
- * Icon for complete, working, etc
- *    Complete: check
- *    Working: brain
- *    Skipped: arrow right from line
  * Progress/dashboard page
  * Add daily progress variable to database
  * dailyProgress {

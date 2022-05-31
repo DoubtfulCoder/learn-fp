@@ -91,6 +91,7 @@ function NavBarLogin() {
 
 function Layout({ pageTitle, children, useSideBar, sidebarLang }) {
     console.log(children)
+    // const mainClasses = useSideBar ? mainWrapper : ''
     // container = React.createRef()
 
     // React.useEffect(() => {
@@ -139,15 +140,15 @@ function Layout({ pageTitle, children, useSideBar, sidebarLang }) {
 
             {/* <h1>ioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiwe</h1> */}
             
-            <div className={mainWrapper}>
-                {useSideBar ? <Sidebar /> : <div>no</div>}
+            <div className={useSideBar ? mainWrapper : ''}>
+                {useSideBar ? <Sidebar /> : <div></div>}
                 <div className={mainBody}>
                     {children}
 
-                    <Dropdown 
+                    {/* <Dropdown 
                         linkToDropdown={<p>YO</p>}
                         links={[['Dashboard', '/dashboard'], ]}
-                    />
+                    /> */}
                 </div>
             </div>
 

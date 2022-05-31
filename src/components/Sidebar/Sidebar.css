@@ -1,4 +1,4 @@
-body {
+/* body {
     min-height: 100vh;
     min-height: -webkit-fill-available;
   }
@@ -56,10 +56,10 @@ main {
 
 .scrollarea {
   overflow-y: auto;
-}
+} */
 
 
-.accordion {
+.accordionStyle {
   height:90%;
   /* min-height: 90%; */
   width:250px;

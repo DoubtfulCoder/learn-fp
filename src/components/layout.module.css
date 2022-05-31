@@ -153,14 +153,13 @@ footer {
    }
 
 
-.main-body {
-    /* background-image: linear-gradient(to bottom, rgb(226, 68, 34, 0.3), rgb(200, 35, 0, 0.8)); */
-    /* filter: invert(1) hue-rotate(180deg)    */
-    padding: 20px;
-}
-
 .main-wrapper {
     display: flex;
     flex-direction: row;
     /* overflow: auto; */
+}
+.main-body {
+    /* background-image: linear-gradient(to bottom, rgb(226, 68, 34, 0.3), rgb(200, 35, 0, 0.8)); */
+    /* filter: invert(1) hue-rotate(180deg)    */
+    padding: 0 20px 20px 20px;
 }

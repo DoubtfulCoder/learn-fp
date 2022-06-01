@@ -4,13 +4,37 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout.js'
 // import { signInWithGoogle, completeTask } from '../Firebase.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Alert, Button } from 'react-bootstrap'
+import { Alert, Button, Card, Row, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons'
+import { 
+  faArrowRightLong, 
+  faTerminal, faBookOpenReader, faListCheck, faCircleQuestion
+} from '@fortawesome/free-solid-svg-icons'
 
 /* Returns title of tutorial page with word title removed */
-function trimTutName(str) {
-  return str.replace(" Tutorial", "")
+// function trimTutName(str) {
+//   return str.replace(" Tutorial", "")
+// }
+
+const howItWorks = {
+  titles: [
+    "Any Language",
+    "Resources and Original Guides",
+    "Track Progress",
+    "Quizzes and Exercises"
+  ],
+  descriptions: [
+    "Choose from our 6 available languages to learn",
+    "Read our original tutorial guides or view our curated resources",
+    "Track your progress as you move through courses and moduless s s s s s s s",
+    "Take our quizzes to check your understanding and complete our original and hand-picked exercises"
+  ],
+  icons: [
+    <FontAwesomeIcon icon={faTerminal} color="white" size="3x" className="bg-primary me-3 p-3 rounded-circle"/>,
+    <FontAwesomeIcon icon={faBookOpenReader} color="white" size="3x" className="bg-primary me-3 p-3 rounded-circle"/>,
+    <FontAwesomeIcon icon={faListCheck} color="white" size="3x" className="bg-primary me-3 p-3 rounded-circle"/>,
+    <FontAwesomeIcon icon={faCircleQuestion} color="white" size="3x" className="bg-primary me-3 p-3 rounded-circle"/>
+  ]
 }
 
 function IndexPage({ data }) { 
@@ -44,36 +68,43 @@ function IndexPage({ data }) {
 
       {/* <p>Racket basics status? {checkStatus("racket", "basics")}</p> */}
 
-      {
-        data.allMdx.nodes.map(node => (
-          <div>
-            <h2>Learn {trimTutName(node.frontmatter.title)}</h2>
-            {/* <MDXRenderer>{node.body}</MDXRenderer> */}
-          </div>
-        ))
-      }
+      <h2 className="text-center">How it works</h2>
 
+      <Row xs={1} md={2} className="g-4 mb-5">
+        {howItWorks.titles.map((title, i) => (
+          <Col>
+            <Card bg="info" border="primary">
+                  <Card.Body className="d-flex flex-row">
+                      {howItWorks.icons[i]}
+                      <div>
+                          <Card.Title>{title}</Card.Title>
+                          <Card.Text>
+                              {howItWorks.descriptions[i]}
+                          </Card.Text>
+                      </div>
+                  </Card.Body>
+              </Card>
+          </Col>
+        ))}
+      </Row>
+
+      {/* Bottom: account opening alert */}
       <Alert variant="primary">
         <Alert.Heading>Ready to start learning?</Alert.Heading>
-        <p className="border-info bg-danger w-25 lead">
-          <Link to="/courses" className="text-decoration-none text-info">
-            Check out our courses <FontAwesomeIcon icon={faArrowRightLong}/>
-          </Link>
-        </p>
-        <Button variant="primary" size="lg" className="me-2">
+        <p>Make an account to track your progress or view our available courses.</p>
+        <Button variant="primary" size="lg" className="me-2 btn btn-outline-warning">
           <Link to="/courses" className="text-decoration-none text-light">
             Sign up <FontAwesomeIcon icon={faArrowRightLong}/>
           </Link>
         </Button>{' '}
-        <Button variant="light" size="lg" className="border border-dark">
+        <Button variant="light" size="lg" className="btn-outline-secondary">
           <Link to="/courses" className="text-decoration-none text-dark">
             Courses <FontAwesomeIcon icon={faArrowRightLong}/>
           </Link>
         </Button>
         <hr />
         <p className="mb-0">
-          Whenever you need to, be sure to use margin utilities to keep things nice
-          and tidy.
+          Or login: <button>Log in</button>
         </p>
       </Alert>
     </Layout>

@@ -1,9 +1,12 @@
 import * as React from "react"
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 // import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Layout from '../components/layout.js'
 // import { signInWithGoogle, completeTask } from '../Firebase.js'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Alert, Button } from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRightLong } from '@fortawesome/free-solid-svg-icons'
 
 /* Returns title of tutorial page with word title removed */
 function trimTutName(str) {
@@ -49,6 +52,30 @@ function IndexPage({ data }) {
           </div>
         ))
       }
+
+      <Alert variant="primary">
+        <Alert.Heading>Ready to start learning?</Alert.Heading>
+        <p className="border-info bg-danger w-25 lead">
+          <Link to="/courses" className="text-decoration-none text-info">
+            Check out our courses <FontAwesomeIcon icon={faArrowRightLong}/>
+          </Link>
+        </p>
+        <Button variant="primary" size="lg" className="me-2">
+          <Link to="/courses" className="text-decoration-none text-light">
+            Sign up <FontAwesomeIcon icon={faArrowRightLong}/>
+          </Link>
+        </Button>{' '}
+        <Button variant="light" size="lg" className="border border-dark">
+          <Link to="/courses" className="text-decoration-none text-dark">
+            Courses <FontAwesomeIcon icon={faArrowRightLong}/>
+          </Link>
+        </Button>
+        <hr />
+        <p className="mb-0">
+          Whenever you need to, be sure to use margin utilities to keep things nice
+          and tidy.
+        </p>
+      </Alert>
     </Layout>
   )
 }

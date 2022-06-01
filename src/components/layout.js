@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Link } from 'gatsby'
-import Dropdown from './Dropdown/Dropdown.js'
+// import Dropdown from './Dropdown/Dropdown.js'
 import Sidebar from './Sidebar/Sidebar.js'
 import { 
     topNav, siteTitle, navLink, navLinkText, 
@@ -12,7 +12,7 @@ import {
 // import { ReactComponent as Logo } from '../../public/static/favicon.svg'
 import { signInWithGoogle, signOutAcc } from '../Firebase.js'
 import { StaticImage } from 'gatsby-plugin-image'
-import Image from 'react-bootstrap/Image'
+import { Image, Dropdown, DropdownButton } from 'react-bootstrap'
 
 export function getCookieValue (name) {
     return document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
@@ -128,10 +128,17 @@ function Layout({ pageTitle, children, useSideBar, sidebarLang }) {
 
                         <ul className={`${topNavBar} nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0`}>
                             <li><Link to="/" className="nav-link px-2 text-secondary">Home</Link></li>
-                            <li><Link to="/courses" className="nav-link px-2 text-white">Courses</Link></li>
-                            <li><Link to="/blog" className="nav-link px-2 text-white">Blog</Link></li>
-                            <li><Link to="#" className="nav-link px-2 text-white">FAQs</Link></li>
-                            <li><Link to="#" className="nav-link px-2 text-white">Contribute</Link></li>
+                            <li><Link to="/courses" className="nav-link px-2 text-white">Languages</Link></li>
+                            <li>
+                                <DropdownButton id="dropdown-basic-button" title="Topics" className="bg-transparent" menuVariant="dark">
+                                    <Dropdown.Item href="#/action-1">Recursion</Dropdown.Item>
+                                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                </DropdownButton>
+                            </li>
+                            {/* <li><Link to="/blog" className="nav-link px-2 text-white">Blog</Link></li> */}
+                            {/* <li><Link to="#" className="nav-link px-2 text-white">FAQs</Link></li> */}
+                            <li><Link to="/contribute" className="nav-link px-2 text-white">Contribute</Link></li>
                         </ul>
 
                         <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
@@ -159,7 +166,8 @@ function Layout({ pageTitle, children, useSideBar, sidebarLang }) {
             </div>
 
             {/* Bottom footer */}
-            <footer>
+            {/* <footer>
+            
                 <ul className={`${bottomNav}`}>
                     <li>
                         <Link to="/about" className={navLinkText}>About</Link>
@@ -171,7 +179,46 @@ function Layout({ pageTitle, children, useSideBar, sidebarLang }) {
                         <Link to="/donate" className={navLinkText}>Donate</Link>
                     </li>
                 </ul>
-            </footer>
+            </footer> */}
+            <div class="container">
+                <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+                    <div class="col mb-3">
+                    <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                        {/* <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg> */}
+                        <Image 
+                            alt="LearnFP"
+                            src="../../public/static/favicon.svg"
+                        />
+                    </a>
+                    <p class="text-muted">&copy; 2022</p>
+                    </div>
+
+                    <div class="col mb-3">
+
+                    </div>
+
+                    <div class="col mb-3">
+                    <h5>Courses</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="/courses/haskell" class="nav-link p-0 text-muted">Haskell</a></li>
+                        <li class="nav-item mb-2"><a href="/courses/racket" class="nav-link p-0 text-muted">Racket</a></li>
+                        <li class="nav-item mb-2"><a href="/courses/standard-ml" class="nav-link p-0 text-muted">Standard ML</a></li>
+                        <li class="nav-item mb-2"><a href="/courses/javascript" class="nav-link p-0 text-muted">Javascript</a></li>
+                        <li class="nav-item mb-2"><a href="/courses/f-sharp" class="nav-link p-0 text-muted">F#</a></li>
+                        <li class="nav-item mb-2"><a href="/courses/ocaml" class="nav-link p-0 text-muted">OCaml</a></li>
+                    </ul>
+                    </div>
+
+                    <div class="col mb-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-muted">Home</a></li>
+                        <li class="nav-item mb-2"><a href="/about" class="nav-link p-0 text-muted">About</a></li>
+                        <li class="nav-item mb-2"><a href="/contribute" class="nav-link p-0 text-muted">Contribute</a></li>
+                        <li class="nav-item mb-2"><a href="/contact" class="nav-link p-0 text-muted">Contact</a></li>
+                    </ul>
+                    </div>
+                </footer>
+            </div>
         </div>
     )
 }

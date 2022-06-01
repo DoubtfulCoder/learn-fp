@@ -2,7 +2,8 @@ import * as React from 'react'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/layout.js'
 import { Card, Row, Col } from 'react-bootstrap'
-import './courses.css'
+// import './courses.css'
+import Courses from '../../components/Courses/Courses.js'
 
 const languages = [
     "Haskell", "Racket", "Standard ML", "Javascript",
@@ -65,36 +66,7 @@ function CoursesPage({ data }) {
                     </Col>
                 ))}
             </Row> */}
-            <Row xs={1} md={2} className="g-4">
-                {languages.map((language, i) => (
-                    <Col>
-                        <Link 
-                            to={`/courses/${
-                                language.replace(' ', '-').replace('#', '-sharp').toLowerCase()
-                            }`}
-                            className="text-decoration-none"
-                        >
-                            <Card bg="info" border="primary" className="cardLink">
-                                {/* <Card.Img 
-                                    variant="top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Haskell-Logo.svg/1024px-Haskell-Logo.svg.png?20190213014332" 
-                                    className="p-3"/> */}
-                                <Card.Body className="d-flex flex-row">
-                                    <Card.Img 
-                                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Haskell-Logo.svg/1024px-Haskell-Logo.svg.png?20190213014332" 
-                                        className="p-3 w-25"/>
-                                    <div>
-                                        <br />
-                                        <Card.Title>{language}</Card.Title>
-                                        <Card.Text>
-                                            {descriptions[i]}
-                                        </Card.Text>
-                                    </div>
-                                </Card.Body>
-                            </Card>
-                        </Link>
-                    </Col>
-                ))}
-            </Row>
+            <Courses />
         </Layout>
     )
 }

@@ -1,0 +1,9 @@
+.how-it-works-card:hover {
+    opacity: 70%;
+    border-style: none;
+    transition: 0.1s;
+}
+
+* {
+    /* filter: invert(100%); */                                                                                                                                      
+}

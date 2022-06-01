@@ -2,7 +2,9 @@ import * as React from "react"
 import { Link, graphql } from 'gatsby'
 // import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Layout from '../components/layout.js'
+import Courses from '../components/Courses/Courses.js'
 // import { signInWithGoogle, completeTask } from '../Firebase.js'
+import '../styles/index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Alert, Button, Card, Row, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -67,13 +69,16 @@ function IndexPage({ data }) {
       </button> */}
 
       {/* <p>Racket basics status? {checkStatus("racket", "basics")}</p> */}
+      
+      <h2 className="text-center mb-3">Courses</h2>
+      <Courses />
 
-      <h2 className="text-center">How it works</h2>
+      <h2 className="text-center mb-3">How it works</h2>
 
       <Row xs={1} md={2} className="g-4 mb-5">
         {howItWorks.titles.map((title, i) => (
           <Col>
-            <Card bg="info" border="primary">
+            <Card bg="info" border="primary" className="how-it-works-card">
                   <Card.Body className="d-flex flex-row">
                       {howItWorks.icons[i]}
                       <div>

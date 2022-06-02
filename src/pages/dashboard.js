@@ -43,17 +43,17 @@ function Dashboard() {
                         <Card.Body className="d-flex flex-row justify-content-center gap-5">
                             <div className='text-center'>
                                 <FontAwesomeIcon icon={faBrain} size="4x"/>
-                                <p>Working: </p>
+                                <p>Working: 0</p>
                             </div>
 
                             <div className='text-center'>
                                 <FontAwesomeIcon icon={faArrowRightFromBracket} size="4x"/>
-                                <p>Skipped: </p>
+                                <p>Skipped: 0</p>
                             </div>
 
                             <div className='text-center'>
                                 <FontAwesomeIcon icon={faCheck} size="4x"/>
-                                <p>Completed: </p>
+                                <p>Completed: 0</p>
                             </div>
                         </Card.Body>
                   </Card>

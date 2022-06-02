@@ -9,7 +9,6 @@ import {
     profilePic, topNavBar, profileLinks,
     mainBody, mainWrapper
 } from './layout.module.css'
-// import { ReactComponent as Logo } from '../../public/static/favicon.svg'
 import { signInWithGoogle, signOutAcc } from '../Firebase.js'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Image, Dropdown, DropdownButton } from 'react-bootstrap'
@@ -116,7 +115,6 @@ function Layout({ pageTitle, children, useSideBar, sidebarLang }) {
                 <div className="container">
                     <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                         {/* <img src="../../public/static/favicon.svg" alt="learnfp logo"/> */}
-                        {/* <Logo /> */}
                         <Link to="/" className="text-decoration-none">
                             <StaticImage 
                                 src="./learnfp-logo-removebg-preview.png"

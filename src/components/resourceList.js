@@ -7,9 +7,6 @@ function ResourceList(props) {
     let { children, title } = props
     const { url, setUrl } = React.useContext(MDXContext)
 
-    console.log("PROPS", props)
-    console.log("url", props.url)
-
     const th_classes = "p-2 bg-light border"
     // console.log("children: ")
     // console.log(children)

@@ -43,11 +43,11 @@ function NavBarLogin() {
                 {/* profile pic */}
                 <a
                     // Toggle link visibility onClick and make invisible when anything else focused
-                    className="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" dataBsToggle="dropdown" ariaExpanded="false"
+                    className="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2"
                     onClick={() => setProfileLinksVis(!profileLinksVis)} 
                     onBlur={() => { 
                         setTimeout(() => {
-                            if (document.activeElement.className != "dropdownLink") {
+                            if (document.activeElement.className !== "dropdownLink") {
                                 // Invisible when body clicked EXCEPT when actual menu clicked
                                 setProfileLinksVis(false)
                             }
@@ -68,7 +68,7 @@ function NavBarLogin() {
                         // onClick={() => setProfileLinksVis(!profileLinksVis)} 
                         // onBlur={() => { 
                         //     setTimeout(() => {
-                        //         if (document.activeElement.className != "dropdownLink") {
+                        //         if (document.activeElement.className !== "dropdownLink") {
                         //             // Invisible when body clicked EXCEPT when actual menu clicked
                         //             setProfileLinksVis(false)
                         //         }
@@ -183,41 +183,41 @@ function Layout({ pageTitle, children, useSideBar, sidebarLang }) {
                     </li>
                 </ul>
             </footer> */}
-            <div class="container">
-                <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
-                    <div class="col mb-3">
-                    <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
-                        {/* <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg> */}
+            <div className="container">
+                <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+                    <div className="col mb-3">
+                    <a href="/" className="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                        {/* <svg className="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg> */}
                         <Image 
                             alt="LearnFP"
                             src="../../public/static/favicon.svg"
                         />
                     </a>
-                    <p class="text-muted">&copy; 2022</p>
+                    <p className="text-muted">&copy; 2022</p>
                     </div>
 
-                    <div class="col mb-3">
+                    <div className="col mb-3">
 
                     </div>
 
-                    <div class="col mb-3">
+                    <div className="col mb-3">
                     <h5>Courses</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="/courses/haskell" class="nav-link p-0 text-muted">Haskell</a></li>
-                        <li class="nav-item mb-2"><a href="/courses/racket" class="nav-link p-0 text-muted">Racket</a></li>
-                        <li class="nav-item mb-2"><a href="/courses/standard-ml" class="nav-link p-0 text-muted">Standard ML</a></li>
-                        <li class="nav-item mb-2"><a href="/courses/javascript" class="nav-link p-0 text-muted">Javascript</a></li>
-                        <li class="nav-item mb-2"><a href="/courses/f-sharp" class="nav-link p-0 text-muted">F#</a></li>
-                        <li class="nav-item mb-2"><a href="/courses/ocaml" class="nav-link p-0 text-muted">OCaml</a></li>
+                    <ul className="nav flex-column">
+                        <li className="nav-item mb-2"><a href="/courses/haskell" className="nav-link p-0 text-muted">Haskell</a></li>
+                        <li className="nav-item mb-2"><a href="/courses/racket" className="nav-link p-0 text-muted">Racket</a></li>
+                        <li className="nav-item mb-2"><a href="/courses/standard-ml" className="nav-link p-0 text-muted">Standard ML</a></li>
+                        <li className="nav-item mb-2"><a href="/courses/javascript" className="nav-link p-0 text-muted">Javascript</a></li>
+                        <li className="nav-item mb-2"><a href="/courses/f-sharp" className="nav-link p-0 text-muted">F#</a></li>
+                        <li className="nav-item mb-2"><a href="/courses/ocaml" className="nav-link p-0 text-muted">OCaml</a></li>
                     </ul>
                     </div>
 
-                    <div class="col mb-3">
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-muted">Home</a></li>
-                        <li class="nav-item mb-2"><a href="/about" class="nav-link p-0 text-muted">About</a></li>
-                        <li class="nav-item mb-2"><a href="/contribute" class="nav-link p-0 text-muted">Contribute</a></li>
-                        <li class="nav-item mb-2"><a href="/contact" class="nav-link p-0 text-muted">Contact</a></li>
+                    <div className="col mb-3">
+                    <ul className="nav flex-column">
+                        <li className="nav-item mb-2"><a href="/" className="nav-link p-0 text-muted">Home</a></li>
+                        <li className="nav-item mb-2"><a href="/about" className="nav-link p-0 text-muted">About</a></li>
+                        <li className="nav-item mb-2"><a href="/contribute" className="nav-link p-0 text-muted">Contribute</a></li>
+                        <li className="nav-item mb-2"><a href="/contact" className="nav-link p-0 text-muted">Contact</a></li>
                     </ul>
                     </div>
                 </footer>

@@ -44,7 +44,7 @@ class Resource extends React.Component {
     //     }
     // }
 
-    constructor({ props }) {
+    constructor(props) {
         super(props)
 
         this.state = {
@@ -81,7 +81,7 @@ class Resource extends React.Component {
         return (
             <tr key={this.keyVal}>
                 <td className={td_classes} style={{width: "20%"}}>
-                    <Dropdown>
+                    <Dropdown onSelect={(key) => console.log("KEY", key)}>
                             <Dropdown.Toggle variant="success" id="dropdown-basic">
                                 {this.state.status + " "}
                                 {React.cloneElement(
@@ -92,7 +92,7 @@ class Resource extends React.Component {
                             <Dropdown.Menu>
                                 {
                                     possibleStatuses.map((possibleStat, i) => (
-                                        <Dropdown.Item>
+                                        <Dropdown.Item key={i} eventKey={i}>
                                             {possibleStat + " "}
                                             {icons[i]}
                                         </Dropdown.Item>

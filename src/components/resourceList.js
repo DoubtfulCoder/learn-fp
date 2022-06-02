@@ -1,8 +1,15 @@
 import * as React from 'react'
 import { getStatus } from '../Firebase.js'
+import { MDXContext } from './MDXWrapper/MDXWrapper'
 import Table from 'react-bootstrap/Table'
 
-function ResourceList({ children, title }) {
+function ResourceList(props) {
+    let { children, title } = props
+    const { url, setUrl } = React.useContext(MDXContext)
+
+    console.log("PROPS", props)
+    console.log("url", props.url)
+
     const th_classes = "p-2 bg-light border"
     // console.log("children: ")
     // console.log(children)
@@ -24,7 +31,8 @@ function ResourceList({ children, title }) {
     // console.log(statuses)
     
     return (
-        <div>            
+        <div> 
+            {`THE PROPER URL IS: ${url}`}           
             <Table responsive="md" borderless style={{maxWidth: "65%"}}>
                 <thead>
                     <tr>

@@ -121,12 +121,10 @@ function Sidebar({ language, dontActAsSideBar }) {
                       <Accordion.Item eventKey={`${i}`}>
                           <Accordion.Header>{module}</Accordion.Header>
                           <Accordion.Body>
-                              {links[module].map(link => (
-                                  <>
-                                    <p><Link to={`/courses/${link.slug}`}>
-                                      {link.frontmatter.title}
-                                    </Link></p>
-                                  </>
+                              {links[module].map((link, j) => (
+                                <p key={j}><Link to={`/courses/${link.slug}`}>
+                                  {link.frontmatter.title}
+                                </Link></p>
                               ))}
                           </Accordion.Body>
                       </Accordion.Item>

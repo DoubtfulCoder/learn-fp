@@ -13,8 +13,11 @@ language: "haskell"
 <!-- // import { SuggestReading, } from '../../src/components/' -->
 import Resource from '../../src/components/resource'
 import ResourceList from '../../src/components/resourceList'
+import MDXWrapper from '../../src/components/MDXWrapper/MDXWrapper'
 
-### Introducing Haskell
+<MDXWrapper url={props.url}>
+<div>URL: {props.url}</div>
+
 <br />
 
 #### Suggested Reading
@@ -65,3 +68,5 @@ More guides if you're still stuck
         keyVal="hd"
     />
 </ResourceList>
+
+</MDXWrapper>

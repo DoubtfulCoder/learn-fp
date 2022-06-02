@@ -69,18 +69,20 @@ export const signInWithGoogle = () => {
                     name: "Los Angeles",
                     state: "CA",
                     country: "USA"
+                }).then(() => {
+                    // Store uid in cookies
+                    document.cookie = `uid=${userId}; expires=Mon, 31 Dec 2040 12:00:00 UTC`
+                    window.location.replace("/dashboard")
                 })
             }
-
-            // Store uid in cookies
-            document.cookie = `uid=${userId}; expires=Mon, 31 Dec 2040 12:00:00 UTC`
+            
             
             // window.location.reload();
             // Redirect to dashboard
             // React.useEffect(() => {
             //     navigate('/courses');
             // }, []);
-            window.location.replace("/courses")
+            
             // result.user.getIdToken().then(idToken => {
             //     console.log("token ID", idToken)
             //     // const csrfToken = getCookie('csrfToken')

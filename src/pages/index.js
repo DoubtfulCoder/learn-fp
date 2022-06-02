@@ -169,4 +169,6 @@ export default IndexPage
  * Sidebar hamburger
  * 
  * import favicons in dashboard
+ * 
+ * TODO : in sign out function, don't redirect unless on home page
  */

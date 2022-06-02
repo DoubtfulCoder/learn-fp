@@ -4,7 +4,7 @@ import { db } from '../Firebase.js'
 import Dropdown from 'react-bootstrap/Dropdown'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
-    faBrain, faArrowRightFromBracket, faCheck, faCirclePlay
+    faCirclePlay, faBrain, faArrowRightFromBracket, faCheck
 } from '@fortawesome/free-solid-svg-icons'
 
 const possibleStatuses = ["Not Started", "Working", "Skipped", "Complete"]

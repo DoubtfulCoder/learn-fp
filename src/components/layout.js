@@ -117,17 +117,20 @@ function Layout({ pageTitle, children, useSideBar, sidebarLang }) {
                     <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                         {/* <img src="../../public/static/favicon.svg" alt="learnfp logo"/> */}
                         {/* <Logo /> */}
-                        <Image 
-                            alt="LearnFP"
-                            src="../../public/static/favicon.svg"
-                        />
-                        <h2>LearnFP</h2>
-                        <Link to="/" className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                        
+                        <Link to="/" className="text-decoration-none">
+                            <StaticImage 
+                                src="./learnfp-logo-removebg-preview.png"
+                                alt="LearnFP"
+                                width={50}
+                                className="me-1"
+                            />
+                        </Link>
+                        <Link to="/" className="text-decoration-none text-reset">
+                            <h2>LearnFP</h2>
                         </Link>
 
                         <ul className={`${topNavBar} nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0`}>
-                            <li><Link to="/" className="nav-link px-2 text-secondary">Home</Link></li>
+                            <li><Link to="/dashboard" className="nav-link px-2 text-secondary">Home</Link></li>
                             <li><Link to="/courses" className="nav-link px-2 text-white">Languages</Link></li>
                             <li>
                                 <DropdownButton id="dropdown-basic-button" title="Topics" className="bg-transparent" menuVariant="dark">

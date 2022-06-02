@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { Card, Row, Col } from 'react-bootstrap'
 import './Courses.css'
 
-const languages = [
+export const languages = [
     "Haskell", "Racket", "Standard ML", "Javascript",
     "F#", "OCaml"
 ]

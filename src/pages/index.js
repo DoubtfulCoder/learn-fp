@@ -97,16 +97,19 @@ function IndexPage({ data }) {
       <Alert variant="primary">
         <Alert.Heading>Ready to start learning?</Alert.Heading>
         <p>Make an account to track your progress or view our available courses.</p>
-        <Button variant="primary" size="lg" className="me-2 btn btn-outline-warning">
-          <Link to="/courses" className="text-decoration-none text-light">
-            Sign up <FontAwesomeIcon icon={faArrowRightLong}/>
-          </Link>
-        </Button>{' '}
-        <Button variant="light" size="lg" className="btn-outline-secondary">
-          <Link to="/courses" className="text-decoration-none text-dark">
-            Courses <FontAwesomeIcon icon={faArrowRightLong}/>
-          </Link>
-        </Button>
+        <Link to="/courses" className="text-decoration-none text-light">
+          <Button variant="primary" size="lg" className="me-2 btn btn-outline-info">
+              Sign up <FontAwesomeIcon icon={faArrowRightLong}/>            
+          </Button>{' '}
+        </Link>
+        
+        <Link to="/courses" className="text-decoration-none text-dark">
+          <Button variant="light" size="lg" className="btn-outline-secondary">
+            {/* <Link to="/courses" className="text-decoration-none text-dark"> */}
+              Courses <FontAwesomeIcon icon={faArrowRightLong}/>
+            {/* </Link> */}
+          </Button>
+        </Link>
         <hr />
         <p className="mb-0">
           Or login: <button>Log in</button>
@@ -164,4 +167,6 @@ export default IndexPage
  * Create a dropdown component
  * 
  * Sidebar hamburger
+ * 
+ * import favicons in dashboard
  */

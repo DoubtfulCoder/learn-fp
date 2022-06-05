@@ -7,11 +7,14 @@ import {
     faSpinner, faArrowUpRightFromSquare,
     faBrain, faArrowRightFromBracket, faCheck
 } from '@fortawesome/free-solid-svg-icons'
+import { isBrowser } from '../components/layout'
 
 function Dashboard() {
     const uid = getCookieValue('uid')
     if (!uid) {  // Not logged in: show loading symbol and redirect to home
-        window.location.replace("/")
+        if (isBrowser) {  // needed for node/gatsby build
+            window.location.replace("/")
+        }
         return (
             <div className="text-center">
                 <FontAwesomeIcon 

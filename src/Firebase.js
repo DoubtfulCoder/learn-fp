@@ -11,8 +11,7 @@ import {
     query, where, 
     setDoc, 
 } from 'firebase/firestore'
-import * as React from 'react'
-import { navigate } from "@reach/router"
+import { isBrowser } from './components/layout'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -72,8 +71,17 @@ export const signInWithGoogle = () => {
                 }).then(() => {
                     // Store uid in cookies
                     document.cookie = `uid=${userId}; expires=Mon, 31 Dec 2040 12:00:00 UTC`
-                    window.location.replace("/dashboard")
+                    if (isBrowser) { // needed to pass gatsby/node build
+                        window.location.replace("/dashboard")
+                    }
                 })
+            }
+
+            else {  // setDoc doesn't finish when this isn't in .then(change to async?)
+                document.cookie = `uid=${userId}; expires=Mon, 31 Dec 2040 12:00:00 UTC`
+                if (isBrowser) { // needed to pass gatsby/node build
+                    window.location.replace("/dashboard")
+                }
             }
             
             
@@ -101,7 +109,9 @@ export function signOutAcc() {
         console.log('Signed Out');
         // delete uid
         document.cookie = `uid=delete; expires=Thu, 01 Jan 1970 00:00:00 UTC`
-        window.location.reload();
+        if (isBrowser) { // needed to pass gatsby/node build
+            window.location.reload();
+        }
     }, function(error) {
         console.error('Sign Out Error', error);
     });

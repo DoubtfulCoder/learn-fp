@@ -5,13 +5,17 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-plugin-sharp",
+      quality: 80,
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
       options: {
-        name: 'tutorials',
-        path: `${__dirname}/language-tuts`,
-      },
+        rule: {
+          include: /assets/
+        }
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',

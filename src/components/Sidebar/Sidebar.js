@@ -71,7 +71,8 @@ function Sidebar({ language, dontActAsSideBar }) {
   const data = useStaticQuery(graphql`
       query {
           allMdx(
-              filter: {fileAbsolutePath: {regex: "/content/haskell/"}}
+            filter: {fileAbsolutePath: {regex: "/content/haskell/"}}
+            sort: {fields: frontmatter___lesson}
           ) {
               nodes {
                   frontmatter {

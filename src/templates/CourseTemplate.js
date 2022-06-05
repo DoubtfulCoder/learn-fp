@@ -99,6 +99,7 @@ export const query = graphql`
     query ($language: String!) {
         allMdx(
             filter: {frontmatter: {language: {eq: $language}}}
+            sort: {fields: frontmatter___lesson}
         ) {
             nodes {
                 frontmatter {

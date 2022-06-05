@@ -12,17 +12,22 @@ import {
 import { signInWithGoogle, signOutAcc } from '../Firebase.js'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Image, Dropdown, DropdownButton } from 'react-bootstrap'
+import Cookies from 'js-cookie';
+
+export const isBrowser = typeof window !== "undefined"
 
 export function getCookieValue (name) {
-    return document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
+    // return document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || ''
+    return Cookies.get(name)
 }
 
 /* Only show login screen if not logged in */
 function NavBarLogin() {
     const [profileLinksVis, setProfileLinksVis] = React.useState(false)
     const uid = getCookieValue('uid')
+    console.log("uid", uid)
 
-    if (uid === '') {
+    if (!uid) {
         // Not logged in: return sign in and login button
         return (
             <div className="text-end">
@@ -53,27 +58,19 @@ function NavBarLogin() {
                         }, 0)
                     }}
                 >
-                    <img 
-                        src={localStorage.getItem("profilePic")} 
-                        alt="Profile picture" // REDUNDANT?
-                        className={classes}
-                        style={{
-                            maxWidth: '50px',
-                            borderRadius: '50%',
-                        }}
-                        tabIndex={0}
-
-                        // // Toggle link visibility onClick and make invisible when anything else focused
-                        // onClick={() => setProfileLinksVis(!profileLinksVis)} 
-                        // onBlur={() => { 
-                        //     setTimeout(() => {
-                        //         if (document.activeElement.className !== "dropdownLink") {
-                        //             // Invisible when body clicked EXCEPT when actual menu clicked
-                        //             setProfileLinksVis(false)
-                        //         }
-                        //     }, 0)
-                        // }}
-                    />
+                    {
+                        isBrowser ? 
+                            (<img 
+                                src={localStorage.getItem("profilePic")} 
+                                alt="Profile picture" // REDUNDANT?
+                                className={classes}
+                                style={{
+                                    maxWidth: '50px',
+                                    borderRadius: '50%',
+                                }}
+                                tabIndex={0}
+                            />) : (<></>)
+                    }
                 </a>
                 {/* profile links modal */}
                 <div 
@@ -117,7 +114,7 @@ function Layout({ pageTitle, children, useSideBar, sidebarLang }) {
                         {/* <img src="../../public/static/favicon.svg" alt="learnfp logo"/> */}
                         <Link to="/" className="text-decoration-none">
                             <StaticImage 
-                                src="./learnfp-logo-removebg-preview.png"
+                                src="./favicon.svg"
                                 alt="LearnFP"
                                 width={50}
                                 className="me-1"

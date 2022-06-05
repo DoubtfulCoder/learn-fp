@@ -28,8 +28,7 @@ function ResourceList(props) {
     // console.log(statuses)
     
     return (
-        <div> 
-            {`THE PROPER URL IS: ${url}`}           
+        <div>         
             <Table responsive="md" borderless style={{maxWidth: "65%"}}>
                 <thead>
                     <tr>

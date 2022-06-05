@@ -13,6 +13,7 @@ import { signInWithGoogle, signOutAcc } from '../Firebase.js'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Image, Dropdown, DropdownButton } from 'react-bootstrap'
 import Cookies from 'js-cookie';
+import Icon from "../assets/favicon.svg";
 
 export const isBrowser = typeof window !== "undefined"
 
@@ -112,13 +113,8 @@ function Layout({ pageTitle, children, useSideBar, sidebarLang }) {
                 <div className="container">
                     <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                         {/* <img src="../../public/static/favicon.svg" alt="learnfp logo"/> */}
-                        <Link to="/" className="text-decoration-none">
-                            <StaticImage 
-                                src="./favicon.svg"
-                                alt="LearnFP"
-                                width={50}
-                                className="me-1"
-                            />
+                        <Link to="/">
+                            <Icon width={50} height={50} className="me-2"/>
                         </Link>
                         <Link to="/" className="text-decoration-none text-reset">
                             <h2>LearnFP</h2>
@@ -148,8 +144,6 @@ function Layout({ pageTitle, children, useSideBar, sidebarLang }) {
                     </div>
                 </div>
             </header>
-
-            {/* <h1>ioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiweioweioewhfoiwe</h1> */}
             
             <div className={useSideBar ? mainWrapper : ''}>
                 {useSideBar ? <Sidebar /> : <div></div>}

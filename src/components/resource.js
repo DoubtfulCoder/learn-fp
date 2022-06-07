@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
     faCirclePlay, faBrain, faArrowRightFromBracket, faCheck
 } from '@fortawesome/free-solid-svg-icons'
+import { getCookieValue } from './layout.js'
 
 const possibleStatuses = ["Not Started", "Working", "Skipped", "Complete"]
 const icons = [
@@ -27,7 +28,7 @@ function getLessonFromUrl(url) {
 }
 
 function changeTaskStatus(language, lesson, exerciseKey, newStatus) {
-    let docRef = doc(db, 'users', 'user-test')
+    let docRef = doc(db, 'users', getCookieValue('uid'))
 
     let newDoc = {}
     newDoc[language] = {}

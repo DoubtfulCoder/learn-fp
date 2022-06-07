@@ -177,10 +177,8 @@ function Layout({ pageTitle, children, useSideBar, sidebarLang }) {
                     <div className="col mb-3">
                     <a href="/" className="d-flex align-items-center mb-3 link-dark text-decoration-none">
                         {/* <svg className="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg> */}
-                        <Image 
-                            alt="LearnFP"
-                            src="../../public/static/favicon.svg"
-                        />
+                        <Icon width={30} height={30} style={{filter: "invert(100%)"}} className="me-2"/>
+                        <span>LearnFP</span>
                     </a>
                     <p className="text-muted">&copy; 2022</p>
                     </div>

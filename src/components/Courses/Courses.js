@@ -2,6 +2,12 @@ import * as React from 'react'
 import { Link, graphql } from 'gatsby'
 import { Card, Row, Col } from 'react-bootstrap'
 import './Courses.css'
+import HaskellLogo from '../../assets/haskell.svg'; 
+import RacketLogo from '../../assets/racket.svg'; 
+import SmlLogo from '../../assets/sml.svg'; 
+import JsLogo from '../../assets/javascript.svg';  
+import FSharpLogo from '../../assets/fsharp.svg'; 
+import OcamlLogo from '../../assets/ocaml.svg';
 
 export const languages = [
     "Haskell", "Racket", "Standard ML", "Javascript",
@@ -15,6 +21,15 @@ const descriptions = [
     "Learn the functional wonders of the language of the web",
     "Learn the functional language of practical applications",
     "Learn the ML language for industry",
+]
+
+export const logos = [
+    <HaskellLogo className="w-25 h-25 p-3"/>, 
+    <RacketLogo className="w-25 h-25 p-3"/>, 
+    <SmlLogo className="w-25 h-25 p-3"/>, 
+    <JsLogo className="w-25 h-25 p-3"/>, 
+    <FSharpLogo className="w-25 h-25 p-3"/>, 
+    <OcamlLogo className="w-25 h-25 p-3"/>, 
 ]
 
 function Courses({ data }) {
@@ -35,11 +50,13 @@ function Courses({ data }) {
                                 variant="top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Haskell-Logo.svg/1024px-Haskell-Logo.svg.png?20190213014332" 
                                 className="p-3"/> */}
                             <Card.Body className="d-flex flex-row">
-                                <Card.Img 
+                                {logos[i]}
+                                {/* <Card.Img 
                                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Haskell-Logo.svg/1024px-Haskell-Logo.svg.png?20190213014332" 
-                                    className="p-3 w-25"/>
-                                <div>
+                                    className="p-3 w-25"/> */}
+                                <div className='mt-1'>
                                     <br />
+                                    {/* <br /><br /> */}
                                     <Card.Title>{language}</Card.Title>
                                     <Card.Text>
                                         {descriptions[i]}

@@ -27,6 +27,26 @@ import Accordion from 'react-bootstrap/Accordion'
   
 //   }
 
+// Converts link course name to normal (capitalize, remove dashes, etc.)
+function courseNameFix(name) {
+    switch(name) {
+        case "haskell":
+            return "Haskell"
+        case "racket":
+            return "Racket"
+        case "standard-ml":
+            return "Standard ML"
+        case "javascript":
+            return "Javascript"
+        case "f-sharp":
+            return "F#"
+        case "ocaml":
+            return "Ocaml"
+        default:
+          return "This shouldn't exist..."
+      }
+}
+
 function CourseTemplate({ data, pageContext }) {  
     const { language } = pageContext
     
@@ -34,7 +54,7 @@ function CourseTemplate({ data, pageContext }) {
     if (data.allMdx.nodes.length === 0) {
         return (
             <Layout>
-                <h1>{language}</h1>
+                <h1 className='text-center'>{courseNameFix(language)}</h1>
                 <h2>Coming soon!</h2>
                 <p>Check out other courses: </p>
                 <Link to="/courses">Courses home</Link>
@@ -62,7 +82,7 @@ function CourseTemplate({ data, pageContext }) {
 
     return (
         <Layout>
-            <h1>{language}</h1>
+            <h1 className='text-center'>{courseNameFix(language)}</h1>
             <Accordion 
                 defaultActiveKey={Array(modules.length).fill(0).map((x,i) => i.toString())} 
                 alwaysOpen

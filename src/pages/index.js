@@ -2,7 +2,8 @@ import * as React from "react"
 import { Link, graphql } from 'gatsby'
 // import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Layout from '../components/layout.js'
-import Courses from '../components/Courses/Courses.js'
+import Courses, { logos } from '../components/Courses/Courses.js'
+import { signInWithGoogle, signOutAcc } from '../Firebase.js'
 // import { signInWithGoogle, completeTask } from '../Firebase.js'
 import '../styles/index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,11 +13,30 @@ import {
   faArrowRightLong, 
   faTerminal, faBookOpenReader, faListCheck, faCircleQuestion
 } from '@fortawesome/free-solid-svg-icons'
+import HaskellLogo from '../assets/haskell.svg'; 
 
 /* Returns title of tutorial page with word title removed */
 // function trimTutName(str) {
 //   return str.replace(" Tutorial", "")
 // }
+
+// const logoClasses = [
+//   'logo-1',
+//   'logo-2',
+//   'logo-3',
+//   'logo-4',
+//   'logo-5',
+//   'logo-6',
+// ]
+
+const logoClasses = [
+  'logo-1',
+  'logo-4',
+  'logo-2',
+  'logo-5',
+  'logo-3',
+  'logo-6',
+]
 
 const howItWorks = {
   titles: [
@@ -42,18 +62,28 @@ const howItWorks = {
 function IndexPage({ data }) { 
   return (
     <Layout pageTitle={'Learn Functional Programming'}>
-      <div className="container mt-1 mb-5">
+      <div className="container mt-1 mb-5 position-relative overflow-hidden">
         <div className="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
           <div className="col-lg-7 p-3 p-lg-5 pt-lg-3">
-            <h1 className="display-4 fw-bold lh-1">Border hero with cropped image and shadows</h1>
-            <p className="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+            <h1 className="display-5 fw-bold lh-1 mb-3">Learn Functional Programming Easily With Our Resources</h1>
+            <p className="lead">LearnFP offers a collection of curated resources and problem sets to take you from beginner to advanced in functional programming. We make the difficult topics easy, so sign up today to start learning.</p>
             <div className="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-              <button type="button" className="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Primary</button>
-              <button type="button" className="btn btn-outline-secondary btn-lg px-4">Default</button>
+              <Button variant="primary" onClick={signInWithGoogle} className="btn-lg px-4 me-md-2">
+                Sign up
+              </Button>
+              <Button variant="light" href="/courses" className="btn-outline-secondary btn-lg px-4">
+                Courses
+              </Button>
             </div>
           </div>
-          <div className="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
-              <img className="rounded-lg-3" src="bootstrap-docs.png" alt="" width="720" />
+          {/* <div className="col-lg-4 offset-lg-1 p-0 overflow-hidden"> */}
+          <div className="col-lg-4 p-0 overflow-hidden text-center">
+              {/* <HaskellLogo className="opacity-25" alt="" width="100" /><br />
+              <HaskellLogo className="opacity-25" alt="" width="50" /><br /> */}
+              {logos.map((logo, i) => (
+                React.cloneElement(logo, {key: i, className: `opacity-25 ${logoClasses[i]} p-3 logo-image`})
+              ))}
+              {/* <HaskellLogo className="opacity-25" alt="" width="50" /><br /> */}
           </div>
         </div>
       </div>
@@ -97,22 +127,22 @@ function IndexPage({ data }) {
       <Alert variant="primary">
         <Alert.Heading>Ready to start learning?</Alert.Heading>
         <p>Make an account to track your progress or view our available courses.</p>
-        <Link to="/courses" className="text-decoration-none text-light">
-          <Button variant="primary" size="lg" className="me-2 btn btn-outline-info">
-              Sign up <FontAwesomeIcon icon={faArrowRightLong}/>            
-          </Button>{' '}
-        </Link>
+        <Button variant="primary" size="lg" className="me-2 btn btn-outline-info" onClick={signInWithGoogle}>
+            Sign up <FontAwesomeIcon icon={faArrowRightLong}/>            
+        </Button>{' '}
         
         <Link to="/courses" className="text-decoration-none text-dark">
           <Button variant="light" size="lg" className="btn-outline-secondary">
-            {/* <Link to="/courses" className="text-decoration-none text-dark"> */}
               Courses <FontAwesomeIcon icon={faArrowRightLong}/>
-            {/* </Link> */}
           </Button>
         </Link>
+        
         <hr />
         <p className="mb-0">
-          Or login: <button>Log in</button>
+          Or login: &nbsp;
+          <Button onClick={signInWithGoogle} variant="dark" className="btn-outline-info"> 
+            Log in
+          </Button>
         </p>
       </Alert>
     </Layout>

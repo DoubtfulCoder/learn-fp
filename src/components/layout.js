@@ -12,8 +12,8 @@ import {
 import { signInWithGoogle, signOutAcc } from '../Firebase.js'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Image, Dropdown, DropdownButton } from 'react-bootstrap'
-import Cookies from 'js-cookie';
-import Icon from "../assets/favicon.svg";
+import Cookies from 'js-cookie'
+import Icon from "../assets/favicon.svg"
 
 export const isBrowser = typeof window !== "undefined"
 

@@ -32,6 +32,7 @@ function Dashboard() {
                 <h2 className="mb-4">Welcome {localStorage.getItem("name")}</h2>
                 <Alert variant="primary">
                     <h3>Your last viewed module: </h3>
+                    <h4 className='text-danger'>Introducing and Installing Haskell</h4>
                     <Alert.Link href="/courses/haskell/intro-install">
                         <Button>Pick up where you left off &nbsp;
                             <FontAwesomeIcon icon={faArrowUpRightFromSquare}/>

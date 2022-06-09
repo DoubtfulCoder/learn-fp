@@ -16,16 +16,17 @@ import ResourceList from '../../src/components/resourceList'
 import MDXWrapper from '../../src/components/MDXWrapper/MDXWrapper'
 
 <MDXWrapper url={props.url}>
-<div>URL: {props.url}</div>
-
-<br />
 
 #### Suggested Reading
-Read the following to get acquainted with Haskell
+Read the following to get introduced to Haskell
 
 <ResourceList>
-    <Resource problem="google.com" source="google" notes="stuff" keyVal="ggl"/>
-    <Resource problem="haha.com" source="haha" notes="heh" keyVal="haha"/>
+    <Resource problem="google.com" source="google" notes="stuff" keyVal="ggl"
+        source="Real World Haskell"
+        name="Why functional programming? Why Haskell?"
+        link="http://book.realworldhaskell.org/read/why-functional-programming-why-haskell.html"
+        keyVal="rwh_0"
+    />
 </ResourceList>    
 
 #### More resources
@@ -35,8 +36,14 @@ Additional resources to introduce you to Haskell
     <Resource 
         source="Real World Haskell"
         name="Why functional programming? Why Haskell?"
-        link="http://book.realworldhaskell.org/read/why-functional-programming-why-haskell.html"
-        keyVal="rwh_0"
+        link="http://learnyouahaskell.com/introduction"
+        keyVal="lyh_0"
+    />
+    <Resource 
+        source="UPenn"
+        name="Haskell Basics"
+        link="https://www.seas.upenn.edu/~cis194/spring13/lectures/01-intro.html "
+        keyVal="upenn_0"
     />
 </ResourceList>
 
@@ -65,7 +72,28 @@ More guides if you're still stuck
         name="Haskell Downloads"
         link="https://www.haskell.org/downloads/"
         notes="Official Haskell Download"
-        keyVal="hd"
+        keyVal="hd_0"
+    />
+    <Resource 
+        source="Youtube"
+        name="Installing Haskell"
+        link="https://www.youtube.com/watch?v=gLr2u6CjSsM"
+        notes="Windows install"
+        keyVal="yt_0"
+    />
+    <Resource 
+        source="Youtube"
+        name="Installing Haskell"
+        link="https://www.youtube.com/watch?v=zeZkgIrGKeY"
+        notes="Mac install"
+        keyVal="yt_1"
+    />
+    <Resource 
+        source="Youtube"
+        name="Installing Haskell"
+        link="https://www.youtube.com/watch?v=iMrxN5Qv8Mw"
+        notes="Linux install"
+        keyVal="yt_2"
     />
 </ResourceList>
 

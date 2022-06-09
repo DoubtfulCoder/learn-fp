@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 
 function AboutPage() {
     return (
-        <Layout>
+        <Layout pageTitle="About">
             <h1>About LearnFP</h1>
             <p>LearnFP is the place to get started with functional programming. 
                 Our tutorial guides and resources will help you get your foot

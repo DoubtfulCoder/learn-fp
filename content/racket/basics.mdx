@@ -1,7 +1,67 @@
 ---
 title: "Racket basics"
+lesson: 1
 module: "Getting started"
 language: "racket"
+skills: comments, prefix syntax, data types, variables, functions
 ---
 
-<h3>Basics</h3>
+### Comments
+Single-line comments start with a semicolon:
+<code>; This is a comment </code>
+
+Multi-line comments are in between <code>#|</code> and <code>|#</code>
+<code>
+#| This is<br />
+a<br />
+multi-line<br />
+comment |#
+</code>
+
+
+### Prefix syntax
+Usually, when we write mathematical expressions, we use <b>infix</b> syntax.
+
+For example, we might write 3 + 2, where the operator is between the numbers. 
+This is just a human convention; we could also use postfix syntax such as writing 3 2 +
+
+However, Racket uses a <b>prefix</b> syntax. The operator comes at the beginning in expressions.
+To find 3 + 2, you would write <code>(+ 3 2)</code> in Racket. 
+By using parenthesis, nesting becomes possible. If we wanted to find 3 + 5 * 2, 
+for example, we could write <code>(+ 3 (\* 5 2))</code>. 
+The (\* 5 2) would evaluate to 10, and the expression would become (+ 3 10)
+which evaluates to 13.
+
+### More data types
+We introduced some basic arithmetic functions already like + and \*. Booleans (true or false values)
+and Strings (text) also can have functions applied to them.
+
+Booleans are written as <code>#t</code> for true and <code>#f</code> for false. 
+
+Some functions on booleans:
+<code>(not #t)</code> => <code>#f</code> <br />
+<code>(or #t #f)</code> => <code>#t</code> <br />
+<code>(and #t #f)</code> => <code>#f</code>
+
+Strings are blocks of text. 
+You can print them using using the <code>printf</code> function
+<code>(printf "Hello Racket")</code> => "Hello Racket" 
+
+### Variables
+Variables allow you to assign a value to something which can be used again in your code.
+
+You create a variable using the define keyword:
+<code>(define x 3) ; assigns the number 3 to x</code><br />
+<code>(* x 2)</code> => 6
+
+### Functions
+Functions take in an input and use them to produce an output.
+
+You can create functions using the define keyword with the list of parameters going in parenthesis.
+
+Example:
+<code>(define (greeting name)<br />
+&#9;(string-append "Greetings, " name))
+</code><br /><br />
+
+<code>(greeting "Bob")</code> => "Greetings, Bob"

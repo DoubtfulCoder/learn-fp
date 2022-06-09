@@ -1,0 +1,33 @@
+---
+title: "Recursion"
+lesson: 2
+language: "racket"
+module: "Recursion"
+skills: functions, recursion
+---
+
+### Recursion basics
+Recursion is a technique in which a function calls itself.
+
+There are two parts to recursion:
+1. A recursive call: calling the function again with a simpler input
+2. The base case: the final case where you stop calling the function
+
+A simple example is a factorial problem. A factorial of n multiples all the numbers from 1 to n. 
+For example, 5! is 5\*4\*3\*2\*1
+
+How would we write a recursive function to solve this?
+1. Recursive call: we would want to multiply each number by the number below it, by the number below it, etc.
+2. Base case: once we reach 1, we stop
+
+Code:
+<code>
+(define (factorial n)   <br />
+(if (= n 1)     <br />
+    1   <br />
+    (* n (factorial (- n 1))))  <br />
+)
+</code>
+
+### Tail recursion
+Tail recursion is a special type of recursion in which the value to return is tracked throughout the recursion.

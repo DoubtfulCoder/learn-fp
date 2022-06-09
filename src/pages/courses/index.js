@@ -44,7 +44,7 @@ function CoursesPage({ data }) {
         //     <CourseTemplate title="JavaScript"/>
         //     <CourseTemplate title="Clojure"/> */}
         // </div>    
-        <Layout>
+        <Layout pageTitle="Courses">
             <h1>Courses</h1>
 
             {/* <Row xs={1} md={2} className="g-4">

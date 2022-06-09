@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 
 function Contribute() {
     return (
-        <Layout>
+        <Layout pageTitle="Contribute">
             <h2>Want to contribute?</h2>
             <p>Check out our&nbsp;
                 <Link to="https://github.com/DoubtfulCoder/learn-fp">GitHub</Link>

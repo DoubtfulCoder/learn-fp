@@ -112,7 +112,7 @@ export function signOutAcc() {
         if (isBrowser) { // needed to pass gatsby/node build
             window.location.reload();
         }
-    }, function(error) {
+    }, error => {
         console.error('Sign Out Error', error);
     });
 }

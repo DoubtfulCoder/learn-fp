@@ -6,7 +6,7 @@ function MDXWrapper(props) {
     const [url, setUrl] = React.useState(props.url)
     return (
         <MDXContext.Provider value={{ url, setUrl }}>
-            {props.url}
+            {/* {props.url} */}
             {props.children}
         </MDXContext.Provider>
     )

@@ -125,9 +125,9 @@ function Layout({ pageTitle, children, useSideBar, sidebarLang }) {
                             <li><Link to="/courses" className="nav-link px-2 text-white">Languages</Link></li>
                             <li>
                                 <DropdownButton id="dropdown-basic-button" title="Topics" className="bg-transparent" menuVariant="dark">
-                                    <Dropdown.Item href="#/action-1">Recursion</Dropdown.Item>
-                                    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                    <Dropdown.Item href="/courses/racket/recursion">Recursion</Dropdown.Item>
+                                    <Dropdown.Item href="/courses/racket/basics">Racket basics</Dropdown.Item>
+                                    <Dropdown.Item href="/courses/haskell/intro-install">Introducing Haskell</Dropdown.Item>
                                 </DropdownButton>
                             </li>
                             {/* <li><Link to="/blog" className="nav-link px-2 text-white">Blog</Link></li> */}

@@ -53,7 +53,7 @@ function CourseTemplate({ data, pageContext }) {
     // No data yet for course
     if (data.allMdx.nodes.length === 0) {
         return (
-            <Layout>
+            <Layout pageTitle={courseNameFix(language)}>
                 <h1 className='text-center'>{courseNameFix(language)}</h1>
                 <h2>Coming soon!</h2>
                 <p>Check out other courses: </p>
@@ -81,7 +81,7 @@ function CourseTemplate({ data, pageContext }) {
 
 
     return (
-        <Layout>
+        <Layout pageTitle={courseNameFix(language)}>
             <h1 className='text-center'>{courseNameFix(language)}</h1>
             <Accordion 
                 defaultActiveKey={Array(modules.length).fill(0).map((x,i) => i.toString())} 

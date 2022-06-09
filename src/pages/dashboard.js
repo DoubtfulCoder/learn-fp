@@ -28,7 +28,7 @@ function Dashboard() {
         )
     } else {
         return (
-            <Layout>
+            <Layout pageTitle="Dashboard">
                 <h2 className="mb-4">Welcome {localStorage.getItem("name")}</h2>
                 <Alert variant="primary">
                     <h3>Your last viewed module: </h3>

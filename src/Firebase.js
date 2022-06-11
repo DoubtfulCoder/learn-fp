@@ -1,5 +1,5 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app"
+import { getAnalytics } from "firebase/analytics"
 import { 
     getAuth, GoogleAuthProvider, signInWithPopup,
     getAdditionalUserInfo, signOut
@@ -20,11 +20,13 @@ const firebaseConfig = {
   projectId: "learnfp-test",
   storageBucket: "learnfp-test.appspot.com",
   messagingSenderId: "80970518354",
-  appId: "1:80970518354:web:69b85eeace79f7ca03748b"
+  appId: "1:80970518354:web:69b85eeace79f7ca03748b",
+  measurementId: "G-EM7QJ2DV0K"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 export const auth = getAuth(app);
 
 const provider = new GoogleAuthProvider();

@@ -108,7 +108,7 @@ export const signInWithGoogle = () => {
 
 export function signOutAcc() { 
     signOut(auth).then(() => {
-        console.log('Signed Out');
+        
         // delete uid
         document.cookie = `uid=delete; expires=Thu, 01 Jan 1970 00:00:00 UTC`
         if (isBrowser) { // needed to pass gatsby/node build
@@ -147,7 +147,7 @@ export async function getStatus(language, lesson, id) {
     const docRef = doc(db, 'users', 'user-test')
     const stuff = await getDoc(docRef);
     const status = await stuff.data()[language][lesson];
-    console.log(typeof(status))
+    
     return status ? status : "incomplete"
 
     // getDoc(docRef)

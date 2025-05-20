@@ -6,7 +6,7 @@ import Accordion from 'react-bootstrap/Accordion'
 import Sidebar from '../Sidebar/Sidebar.js'
 
 function CourseTemplate({ title }) {
-    console.log("title", title)
+    
     const data = useStaticQuery(graphql`
         query {
             allMdx(
@@ -29,7 +29,7 @@ function CourseTemplate({ title }) {
     
     data.allMdx.nodes.forEach(node => {
         const mod = node.frontmatter.module
-        console.log("mod", mod)
+        
         if (mod) {
             if (!links[mod]) {
                 modules.push(mod)

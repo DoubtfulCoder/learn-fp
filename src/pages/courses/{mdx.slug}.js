@@ -4,7 +4,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import Layout from '../../components/layout.js'
 
 function Course({ data }) {
-    console.log("slug", data.mdx.slug)
+    
     return (
         <Layout pageTitle={data.mdx.frontmatter.title} useSideBar={true}>
             {/* <h2>YOOO</h2> */}

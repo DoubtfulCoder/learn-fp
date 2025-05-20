@@ -11,7 +11,7 @@ function Dropdown({linkToDropdown, links}) {
                 // Toggle link visibility onClick and make invisible when anything else focused
                 onClick={() => setProfileLinksVis(!profileLinksVis)} 
                 onBlur={() => { 
-                    console.log("ACTIVE", document.activeElement)
+                    
                     setTimeout(() => {
                         if (document.activeElement.className != "dropdownLink") {
                             // Invisible when body clicked EXCEPT when actual menu clicked

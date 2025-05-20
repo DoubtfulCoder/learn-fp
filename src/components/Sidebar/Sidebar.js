@@ -91,7 +91,7 @@ function Sidebar({ language, dontActAsSideBar }) {
   
   data.allMdx.nodes.forEach(node => {
       const mod = node.frontmatter.module
-      console.log("mod", mod)
+      
       if (mod) {
           if (!links[mod]) {
               modules.push(mod)

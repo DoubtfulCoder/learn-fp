@@ -21,7 +21,7 @@ function ResourceList(props) {
     children.forEach(child => {
         getStatus("haskell", "basics", "yo").then((result) => {
             statuses.push(result)
-            console.log("statuses", statuses)
+            
         })
     });
 

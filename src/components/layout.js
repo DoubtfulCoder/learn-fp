@@ -26,7 +26,7 @@ export function getCookieValue (name) {
 function NavBarLogin() {
     const [profileLinksVis, setProfileLinksVis] = React.useState(false)
     const uid = getCookieValue('uid')
-    console.log("uid", uid)
+    
 
     if (!uid) {
         // Not logged in: return sign in and login button
@@ -89,7 +89,7 @@ function NavBarLogin() {
 }
 
 function Layout({ pageTitle, children, useSideBar, sidebarLang }) {
-    console.log(children)
+    
     // const mainClasses = useSideBar ? mainWrapper : ''
     // container = React.createRef()
 

@@ -25,7 +25,7 @@
     "gatsby": "^5.14.2",
     "gatsby-plugin-image": "^3.12.1",
     "gatsby-plugin-manifest": "^5.12.1",
-    "gatsby-plugin-mdx": "^5.10.0",
+    "gatsby-plugin-mdx": "^5.14.1",
     "gatsby-plugin-react-svg": "^3.1.0",
     "gatsby-plugin-sharp": "^5.12.1",
     "gatsby-source-filesystem": "^5.9.0",
